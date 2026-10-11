@@ -1,0 +1,46 @@
+name: Standalone conformance
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  conformance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install -r requirements-dev.txt
+      - name: Run standalone tests
+        run: pytest -q
+      - name: Forbidden dependency scan
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          text = Path("adapter/LRS_ADAPTER_GENERIC_v0.1.md").read_text(encoding="utf-8").lower()
+          forbidden = [
+              "dsm-lrs",
+              "deutsche schule mailand",
+              "dsm-schulstufen-gate",
+              "dsm-leitplanken",
+              "approved personal prompt",
+              "mindmap",
+              "notion",
+              "drive.google.com",
+              "docs.google.com",
+              "/mnt/data",
+          ]
+          found = [x for x in forbidden if x in text]
+          if found:
+              raise SystemExit("Forbidden dependencies found: " + ", ".join(found))
+          print("Forbidden dependency scan: PASS")
+          PY
