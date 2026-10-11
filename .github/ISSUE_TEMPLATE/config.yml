@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Community Adapter Lab"
+    url: "https://github.com/ftreppo/lrs-adapter/blob/main/docs/community/COMMUNITY_ADAPTER_LAB.md"
+    about: "Deutsch / Italiano / English — read the public submission and review model."
+  - name: "Generic LRS Adapter"
+    url: "https://github.com/ftreppo/lrs-adapter/blob/main/adapter/LRS_ADAPTER_GENERIC_v0.1.md"
+    about: "Current portable Adapter instruction."
