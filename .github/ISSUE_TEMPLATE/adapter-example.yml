@@ -1,0 +1,172 @@
+name: "Adapter-Beispiel einreichen / Invia un esempio dell'Adapter / Submit an Adapter Example"
+description: "Anonymisiertes Adapter-Beispiel zur Analyse einreichen / Invia un esempio anonimizzato per l'analisi / Share an anonymized Adapter example for review"
+title: "[Adapter Example]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Community Adapter Lab
+
+        **DEUTSCH**
+        Danke, dass du hilfst, den Adapter zu verbessern.
+
+        **Dieses GitHub-Issue ist öffentlich. Bitte keine persönlichen oder geschützten Daten einreichen.**
+        Keine Namen von Schüler:innen, E-Mail-Adressen, Unterschriften, Diagnosen, PDP/Förderplan-Dokumente, klinischen Berichte, Schülernummern, private Korrespondenz, Zugangsdaten oder private Drive-Links einfügen.
+
+        Teile nur Material, das du weitergeben darfst. Bei urheberrechtlich geschütztem oder vertraulichem Material verwende bitte einen kurzen synthetischen/anonymisierten Ausschnitt, der das relevante Verhalten reproduziert.
+
+        **ITALIANO**
+        Grazie per contribuire al miglioramento dell'Adapter.
+
+        **Questa Issue GitHub è pubblica. Non inserire dati personali o protetti.**
+        Non includere nomi di studenti, email, firme, diagnosi, documenti PDP/Förderplan, referti clinici, numeri identificativi, corrispondenza privata, credenziali o link Drive privati.
+
+        Condividi solo materiale che hai il diritto di condividere. Se il materiale originale è protetto da copyright o riservato, usa un breve estratto sintetico/anonimizzato che riproduca il problema rilevante.
+
+        **ENGLISH**
+        Thank you for helping improve the Adapter.
+
+        **This GitHub issue is public. Do not submit personal or protected data.**
+        Do not include student names, email addresses, signatures, diagnoses, PDP/Förderplan documents, clinical reports, student numbers, private correspondence, credentials, or private Drive links.
+
+        Only share material that you have the right to share. If the original material is copyrighted or confidential, use a short synthetic/anonymized excerpt that reproduces the relevant behavior.
+
+  - type: checkboxes
+    id: privacy_gate
+    attributes:
+      label: "Datenschutz & Rechte / Privacy & diritti / Privacy & sharing rights"
+      options:
+        - label: "DE: Ich bestätige, dass keine persönlichen, schulischen, klinischen, diagnostischen oder geschützten Daten enthalten sind. · IT: Confermo che non sono presenti dati personali, scolastici, clinici, diagnostici o protetti. · EN: I confirm that no personal, student, clinical, diagnostic, or protected information is included."
+          required: true
+        - label: "DE: Ich darf das Material teilen oder habe es durch ein synthetisches/anonymisiertes Äquivalent ersetzt. · IT: Ho il diritto di condividere il materiale oppure l'ho sostituito con un equivalente sintetico/anonimizzato. · EN: I have the right to share the material or replaced it with a synthetic/anonymized equivalent."
+          required: true
+        - label: "DE: Ich verstehe, dass dieses Issue öffentlich ist und vom Projekt analysiert werden kann. · IT: Comprendo che questa Issue è pubblica e può essere analizzata dal progetto. · EN: I understand this issue is public and may be analyzed by the project."
+          required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: "Sprache / Lingua / Language"
+      options:
+        - Deutsch
+        - Italiano
+        - English
+        - Andere / Altro / Other
+    validations:
+      required: true
+
+  - type: input
+    id: adapter_version
+    attributes:
+      label: "Adapter-Version / Versione Adapter / Adapter version"
+      description: "DE: z. B. DSM-LRS Adapter v2.5.1 · IT: es. DSM-LRS Adapter v2.5.1 · EN: e.g. DSM-LRS Adapter v2.5.1"
+      placeholder: "v2.5.1"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: use_case
+    attributes:
+      label: "Nutzungsart / Modalità d'uso / Use case"
+      options:
+        - STUDY
+        - HOMEWORK
+        - ASSESSMENT
+    validations:
+      required: true
+
+  - type: input
+    id: subject
+    attributes:
+      label: "Fach / Materia / Subject"
+      placeholder: "Geschichte / Storia / History"
+    validations:
+      required: true
+
+  - type: input
+    id: school_stage
+    attributes:
+      label: "Schulstufe/Klasse – optional / Livello/classe – facoltativo / School stage/class – optional"
+      description: "DE: Nur allgemeines Niveau, keine Identität. · IT: Solo livello generale, nessuna identità. · EN: Broad level only, never an identity."
+      placeholder: "Klasse 7 / Classe 7 / Grade 7"
+    validations:
+      required: false
+
+  - type: textarea
+    id: objective
+    attributes:
+      label: "Ziel / Obiettivo / Objective"
+      description: "DE: Was sollte gelernt oder getan werden? · IT: Cosa doveva imparare o fare lo studente? · EN: What was the learner supposed to learn or do?"
+      placeholder: "1–3 Sätze / 1–3 frasi / 1–3 sentences"
+    validations:
+      required: true
+
+  - type: textarea
+    id: assessed_competence
+    attributes:
+      label: "Geprüfte Kompetenz / Competenza valutata / Assessed competence"
+      description: "DE: Für ASSESSMENT erforderlich; bei STUDY/HOMEWORK N/A. · IT: Obbligatoria per ASSESSMENT; per STUDY/HOMEWORK N/A. · EN: Required for ASSESSMENT; for STUDY/HOMEWORK write N/A."
+      placeholder: "z. B. lineare Gleichungen selbständig lösen / es. risolvere equazioni lineari in autonomia / e.g. solve linear equations independently"
+    validations:
+      required: true
+
+  - type: textarea
+    id: original_material
+    attributes:
+      label: "Originalmaterial – anonymisiert/synthetisch / Materiale originale – anonimizzato/sintetico / Original material – anonymized/synthetic"
+      description: "DE: Nur den nötigen Ausschnitt einfügen. · IT: Inserisci solo l'estratto minimo necessario. · EN: Include only the minimum excerpt needed."
+      placeholder: "Originalaufgabe / Compito originale / Original task"
+    validations:
+      required: true
+
+  - type: textarea
+    id: adapter_output
+    attributes:
+      label: "Adapter-Ergebnis / Risultato dell'Adapter / Adapter output"
+      description: "DE: Angepasstes Ergebnis einfügen oder sichere Datei anhängen. · IT: Incolla il risultato adattato o allega un file sicuro. · EN: Paste the adapted result or attach a public-safe file."
+      placeholder: "Adapter-Ergebnis / Output adattato / Adapted output"
+    validations:
+      required: true
+
+  - type: textarea
+    id: worked_well
+    attributes:
+      label: "Was hat gut funktioniert? / Cosa ha funzionato bene? / What worked well?"
+      placeholder: "DE / IT / EN"
+    validations:
+      required: false
+
+  - type: textarea
+    id: improvement
+    attributes:
+      label: "Was könnte verbessert werden? / Cosa potrebbe migliorare? / What could be improved?"
+      placeholder: "DE: Was war unklar, zu viel, fehlend oder ungeeignet? · IT: Cosa era poco chiaro, eccessivo, mancante o poco utile? · EN: What was confusing, excessive, missing, or not useful?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: unexpected
+    attributes:
+      label: "Unerwartetes Verhalten – optional / Comportamento inatteso – facoltativo / Unexpected behavior – optional"
+      placeholder: "DE / IT / EN"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: reviewed_example_permission
+    attributes:
+      label: "Darf eine geprüfte anonymisierte Version als Projektbeispiel verwendet werden? / Possiamo usare una versione revisionata e anonimizzata come esempio? / May we use a reviewed anonymized version as a project example?"
+      description: "DE: JA erlaubt eine öffentliche, geprüfte Fassung unter der Repository-Lizenz. · IT: SÌ autorizza una versione pubblica revisionata secondo la licenza del repository. · EN: YES authorizes a public-safe reviewed version under the repository license."
+      options:
+        - "Ja / Sì / Yes"
+        - "Nein – nur Analyse / No – solo analisi / No – analysis only"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: final_confirmation
+    attributes:
+      label: "Bestätigung / Conferma / Confirmation"
+      options:
+        - label: "DE: Eine Submission wird nicht automatisch zu einer Adapter-Regel oder einem kanonischen Beispiel. · IT: Una submission non diventa automaticamente una regola dell'Adapter o un esempio canonico. · EN: A submission does not automatically become an Adapter rule or canonical example."
+          required: true
